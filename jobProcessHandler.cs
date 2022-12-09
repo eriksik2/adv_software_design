@@ -3,12 +3,18 @@ class jobProcessHandler
     private Job job;
     private JobProcessState state;
 
-    public getJob()
+    public jobProcessHandler(Job job)
+    {
+        this.job = job;
+        this.state = JobProcessState.Pending;
+    }
+
+    public Job getJob()
     {
         return job;
     }
 
-    public getState()
+    public JobProcessState getState()
     {
         return state;
     }

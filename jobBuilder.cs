@@ -1,56 +1,56 @@
 class JobBuilder
 {
-    private int minResponders;
-    private int maxResponders;
-    private string description;
-    private Location location;
-    private string name;
-    private RequestPreferences preferences;
-    private RequestPreferences requirements;
-    private User requester;
+    private int? minResponders;
+    private int? maxResponders;
+    private string? description;
+    private Location? location;
+    private string? name;
+    private Preferences? preferences;
+    private Preferences? requirements;
+    private User? requester;
 
-    public setRequester(User requester)
+    public void setRequester(User requester)
     {
         this.requester = requester;
     }
 
-    public setMinResponders(int minResponders)
+    public void setMinResponders(int minResponders)
     {
         this.minResponders = minResponders;
     }
 
-    public setMaxResponders(int maxResponders)
+    public void setMaxResponders(int maxResponders)
     {
         this.maxResponders = maxResponders;
     }
 
-    public setDescription(string description)
+    public void setDescription(string description)
     {
         this.description = description;
     }
 
-    public setLocation(Location location)
+    public void setLocation(Location location)
     {
         this.location = location;
     }
 
-    public setName(string name)
+    public void setName(string name)
     {
         this.name = name;
     }
     
-    public setPreferences(RequestPreferences preferences)
+    public void setPreferences(Preferences preferences)
     {
         this.preferences = preferences;
     }
 
-    public setRequirements(RequestPreferences requirements)
+    public void setRequirements(Preferences requirements)
     {
         this.requirements = requirements;
     }
 
     public Job build()
     {
-        return new Job(minResponders, maxResponders, description, location, name, preferences, requirements, requester);
+        throw new NotImplementedException();
     }
 }
