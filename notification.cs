@@ -8,12 +8,14 @@ abstract class Notification
         this.timestamp = timestamp ?? new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds();
     }
 
-    public string getTitle(Localization loc) {
-        return "Notification";
+    public virtual string getTitle(Localization loc)
+    {
+        return loc.translate("DefaultNotificationTitle");
     }
 
-    public string getBody(Localization loc) {
-        return "You have a notification";
+    public virtual string getBody(Localization loc)
+    {
+        return loc.translate("DefaultNotificationBody");
     }
 }
 
@@ -34,5 +36,87 @@ class OfferedJobNotification : Notification
     public override string getBody(Localization loc)
     {
         return loc.translate("OfferedJobNotificationBody");
+    }
+}
+
+class GrantedJobNotification : Notification
+{
+    private Job job;
+
+    public GrantedJobNotification(Job job) : base(null)
+    {
+        this.job = job;
+    }
+
+    public override string getTitle(Localization loc)
+    {
+        return loc.translate("GrantedJobNotificationTitle");
+    }
+
+    public override string getBody(Localization loc)
+    {
+        return loc.translate("GrantedJobNotificationBody");
+    }
+}
+
+class JobMatchResultNotification : Notification
+{
+    private Job job;
+    private List<ResponderProfile> candidates;
+
+    public JobMatchResultNotification(Job job, List<ResponderProfile> candidates) : base(null)
+    {
+        this.job = job;
+        this.candidates = candidates;
+    }
+
+    public override string getTitle(Localization loc)
+    {
+        return loc.translate("JobMatchResultNotificationTitle");
+    }
+
+    public override string getBody(Localization loc)
+    {
+        return loc.translate("JobMatchResultNotificationBody");
+    }
+}
+
+class JobReportedFinishedNotification : Notification
+{
+    private Job job;
+
+    public JobReportedFinishedNotification(Job job) : base(null)
+    {
+        this.job = job;
+    }
+
+    public override string getTitle(Localization loc)
+    {
+        return loc.translate("JobReportedFinishedNotificationTitle");
+    }
+
+    public override string getBody(Localization loc)
+    {
+        return loc.translate("JobReportedFinishedNotificationBody");
+    }
+}
+
+class JobFinishedNotification : Notification
+{
+    private Job job;
+
+    public JobFinishedNotification(Job job) : base(null)
+    {
+        this.job = job;
+    }
+
+    public override string getTitle(Localization loc)
+    {
+        return loc.translate("JobFinishedNotificationTitle");
+    }
+
+    public override string getBody(Localization loc)
+    {
+        return loc.translate("JobFinishedNotificationBody");
     }
 }
