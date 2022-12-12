@@ -39,6 +39,28 @@ class OfferedJobNotification : Notification
     }
 }
 
+class ResponderAvailableNotification : Notification
+{
+    private Job job;
+    private ResponderProfile responder;
+
+    public ResponderAvailableNotification(Job job, ResponderProfile responder) : base(null)
+    {
+        this.job = job;
+        this.responder = responder;
+    }
+
+    public override string getTitle(Localization loc)
+    {
+        return loc.translate("ResponderAvailableNotificationTitle");
+    }
+
+    public override string getBody(Localization loc)
+    {
+        return loc.translate("ResponderAvailableNotificationBody");
+    }
+}
+
 class GrantedJobNotification : Notification
 {
     private Job job;
@@ -118,5 +140,25 @@ class JobFinishedNotification : Notification
     public override string getBody(Localization loc)
     {
         return loc.translate("JobFinishedNotificationBody");
+    }
+}
+
+class JobFullNotification : Notification
+{
+    private Job job;
+
+    public JobFullNotification(Job job) : base(null)
+    {
+        this.job = job;
+    }
+
+    public override string getTitle(Localization loc)
+    {
+        return loc.translate("JobFullNotificationTitle");
+    }
+
+    public override string getBody(Localization loc)
+    {
+        return loc.translate("JobFullNotificationBody");
     }
 }

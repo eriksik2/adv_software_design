@@ -1,6 +1,5 @@
 class Job
 {
-    private List<User> responders = new List<User>();
     private int minResponders;
     private int maxResponders;
     private User requester;
@@ -10,7 +9,9 @@ class Job
     private Preferences preferences;
     private Preferences requirements;
 
-    public Job(int minResponders, int maxResponders, string description, Location location, string name, Preferences preferences, Preferences requirements, User requester)
+    private DateTime time;
+
+    public Job(int minResponders, int maxResponders, string description, Location location, string name, Preferences preferences, Preferences requirements, User requester, DateTime time)
     {
         this.minResponders = minResponders;
         this.maxResponders = maxResponders;
@@ -20,6 +21,7 @@ class Job
         this.preferences = preferences;
         this.requirements = requirements;
         this.requester = requester;
+        this.time = time;
     }
 
     public User getRequester()
@@ -27,13 +29,28 @@ class Job
         return requester;
     }
 
-    public List<User> getResponders()
-    {
-        return responders;
-    }
-
     public string getName()
     {
         return name;
+    }
+
+    public Preferences getRequirements()
+    {
+        return requirements;
+    }
+
+    public Preferences getPreferences()
+    {
+        return preferences;
+    }
+
+    public int getMaxResponders()
+    {
+        return maxResponders;
+    }
+
+    public int getMinResponders()
+    {
+        return minResponders;
     }
 }

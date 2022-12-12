@@ -27,5 +27,9 @@ class RepositoryFilter
     {
         throw new NotImplementedException();
     }
-    
+
+    internal RepositoryFilter withSex(Sex sex)
+    {
+        throw new NotImplementedException();
+    }
 }

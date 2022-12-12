@@ -1,9 +1,9 @@
 
 class UserNotifier
 {
-    private UserNotifier? userNotifier;
+    private static UserNotifier? userNotifier;
 
-    public UserNotifier getUserNotifier()
+    public static UserNotifier getUserNotifier()
     {
         if (userNotifier == null)
         {

@@ -21,26 +21,31 @@ class ResponderProfile
 
     public void addCategory(JobCategory category)
     {
-        throw new NotImplementedException();
+        jobCategories.Add(category);
     }
 
     public void removeCategory(JobCategory category)
     {
-        throw new NotImplementedException();
+        jobCategories.Remove(category);
     }
 
     public Sex getSex()
     {
-        throw new NotImplementedException();
+        return sex;
     }
 
     public int getAge()
     {
-        throw new NotImplementedException();
+        return age;
     }
 
     public Location getLocation()
     {
-        throw new NotImplementedException();
+        return location;
+    }
+
+    public User getUser()
+    {
+        return user;
     }
 }
