@@ -1,5 +1,5 @@
 
-
+// TODO: add private constructor, init scorer there.
 class Matchmaker
 {
     private static Matchmaker? matchmaker;
@@ -13,7 +13,11 @@ class Matchmaker
         return matchmaker;
     }
 
-    private Scorer scorer = new Scorer();
+    private Matchmaker() {
+        this.scorer = new Scorer();
+    }
+
+    private Scorer scorer;
 
     public List<ResponderProfile> getBestMatches(Preferences requirements, Preferences preferences, int max)
     {
@@ -45,12 +49,5 @@ class Matchmaker
             });
         }
         return responders;
-    }
-}
-
-class Scorer {
-    public int getScore(Preferences jobPref, ResponderProfile responder) {
-        var rnd = new Random();
-        return rnd.Next(0, 100);
     }
 }

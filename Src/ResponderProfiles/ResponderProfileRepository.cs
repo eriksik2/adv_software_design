@@ -12,6 +12,8 @@ class ResponderProfileRepository
         return repository;
     }
 
+    private ResponderProfileRepository() {}
+
     public List<ResponderProfile> fetch(RepositoryFilter filter, int limit, int page)
     {
         throw new NotImplementedException();
