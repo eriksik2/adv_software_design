@@ -30,7 +30,11 @@ class TransactionHandler
         float fee = this.amount * 0.10f;
         float amount = this.amount - fee;
         float amountEach = amount / this.payoutAccounts.Count;
-        paymentAccount.widthdrawal(this.amount);
+        var greenLight = paymentAccount.widthdrawal(this.amount);
+        if (!greenLight)
+        {
+            return false;
+        }
         foreach (var payoutAccount in this.payoutAccounts)
         {
             payoutAccount.deposit(amountEach);

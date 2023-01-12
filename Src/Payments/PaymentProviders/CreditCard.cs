@@ -15,7 +15,7 @@ class CreditCard : PaymentProvider
         this.cardholderName = cardholderName;
     }
 
-    public override void widthdrawal(float amount)
+    public override bool widthdrawal(float amount)
     {
         throw new NotImplementedException();
     }

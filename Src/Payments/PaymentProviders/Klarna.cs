@@ -8,7 +8,7 @@ class Klarna : PaymentProvider
         this.phoneNumber = phoneNumber;
     }
 
-    public override void widthdrawal(float amount)
+    public override bool widthdrawal(float amount)
     {
         throw new NotImplementedException();
     }

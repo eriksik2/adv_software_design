@@ -8,7 +8,7 @@ class PayPal : PaymentProvider
         this.email = email;
     }
 
-    public override void widthdrawal(float amount)
+    public override bool widthdrawal(float amount)
     {
         throw new NotImplementedException();
     }

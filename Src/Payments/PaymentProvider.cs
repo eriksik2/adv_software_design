@@ -1,7 +1,7 @@
 
 abstract class PaymentProvider
 {
-    public abstract void widthdrawal(float amount);
+    public abstract bool widthdrawal(float amount);
     public abstract void deposit(float amount);
 }
 
