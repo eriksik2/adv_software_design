@@ -45,7 +45,7 @@ static class ClientBroker
         // Connect payment account
         var transactionHandler = new TransactionHandler(amount);
         var paymentProvider = requester.getPaymentProviders()[0];
-        transactionHandler.connectPaymentAccount(paymentProvider);
+        transactionHandler.setPaymentAccount(paymentProvider);
 
         // Store job process
         var jobProcessHandler = JobProcessHandler.getJobProcessHandler();

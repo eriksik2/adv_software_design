@@ -3,24 +3,38 @@
 class TransactionHandler
 {
     private float amount;
+    private PaymentProvider? paymentAccount;
+    private List<PaymentProvider> payoutAccounts = new List<PaymentProvider>();
 
     public TransactionHandler(float amount)
     {
         this.amount = amount;
     }
 
-    public void connectPaymentAccount(PaymentProvider provider)
+    public void setPaymentAccount(PaymentProvider provider)
     {
-        throw new NotImplementedException();
+        this.paymentAccount = provider;
     }
 
-    public void connectPayoutAccount(PaymentProvider provider)
+    public void addPayoutAccount(PaymentProvider provider)
     {
-        throw new NotImplementedException();
+        this.payoutAccounts.Add(provider);
     }
 
     public bool executePayment()
     {
-        throw new NotImplementedException();
+        if (this.paymentAccount == null)
+        {
+            return false;
+        }
+        float fee = this.amount * 0.10f;
+        float amount = this.amount - fee;
+        float amountEach = amount / this.payoutAccounts.Count;
+        paymentAccount.widthdrawal(this.amount);
+        foreach (var payoutAccount in this.payoutAccounts)
+        {
+            payoutAccount.deposit(amountEach);
+        }
+        return true;
     }
 }
