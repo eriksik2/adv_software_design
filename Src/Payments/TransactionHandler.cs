@@ -27,6 +27,10 @@ class TransactionHandler
         {
             return false;
         }
+        if (this.payoutAccounts.Count == 0)
+        {
+            return false;
+        }
         float fee = this.amount * 0.10f;
         float amount = this.amount - fee;
         float amountEach = amount / this.payoutAccounts.Count;
